@@ -1,0 +1,113 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    {%if oeuvre %}| {{oeuvre.titre}}{% endif %}
+{% endblock %}
+
+{% block corps %}
+<div>
+    {% if oeuvre %}
+        <div>
+            <center>
+                <img src="{{oeuvre.iiif_image}}" width="600">
+
+                <!-- <div id="openseadragon1" style="width: 800px; height: 600px;"></div>
+                <script src="../static/openseadragon/scripts/openseadragon.min.js"></script>
+                <script type="text/javascript">
+                    var viewer = OpenSeadragon({
+                        id: "openseadragon1",
+                        preserveViewport: true,
+                        visibilityRatio: 1,
+                        minZoomLevel: 1,
+                        defaultZoomLevel: 1,
+                        prefixUrl: "../static/openseadragon/images/",
+                        tileSources: ["{{oeuvre.iiif_image}}"]
+                    });
+                </script>-->
+                <!-- Risque de poser problème pour l'image qui n'est pas au format IIIF-->
+            </center>
+            <div class="property">
+                <h6 style="font-weight: bolder">Titre : </h6>
+                <div class="values">
+                    <div class="value"><i>{{oeuvre.titre}}</i></div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Artiste : </h6>
+                <div class="values">
+                    <div class="value">{{artiste.prenom}} {{artiste.nom}} ({{artiste.annee_naissance}}-{{artiste.annee_mort}})</div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Date : </h6>
+                <div class="values">
+                    <div class="value">{{oeuvre.date_oeuvre}}</div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Technique : </h6>
+                <div class="values">
+                    <div class="value">{{technique.label_technique}}</div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Dimensions : </h6>
+                <div class="values">
+                    <div class="value">{{oeuvre.dimensions}}</div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Localisation : </h6>
+                <div class="values">
+                    <div class="value">{{localisation.label_lieu_conservation}}, {{localisation.label_ville_conservation}}</div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Source des images : </h6>
+                <div class="values">
+                    <div class="value"><a href="{{oeuvre.url_site}}">{{oeuvre.url_site}}</a></div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Manifeste IIIF : </h6>
+                <div class="values">
+                    <div class="value"><a href="{{oeuvre.manifeste_iiif}}">{{oeuvre.manifeste_iiif}}</a></div>
+                </div>
+            </div>
+            <div class="property">
+                <h6 style="font-weight: bolder">Sujet(s) : </h6>
+                <div class="values">
+                    <div class="value">{{sujet.label_sujet}}</div>
+                </div>
+            </div>
+        </div>
+
+        {% if current_user.is_authenticated %}
+            <center>
+                <p>
+                    <a href="{{url_for('maj_oeuvre', id_oeuvre=oeuvre.id_oeuvre)}}">Modifier la notice</a> | <a href="{{url_for('supprimer_oeuvre', id_oeuvre=oeuvre.id_oeuvre) }}">Supprimer la notice</a>
+                </p>
+            </center>
+        {% endif %}
+    {% else %}
+  
+    <div>
+        <center>
+            <div>
+                <h2>La notice de l'œuvre est en cours de construction...</h2>
+                <p>Merci de bien vouloir patienter.</p>
+            </div>
+        </center>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

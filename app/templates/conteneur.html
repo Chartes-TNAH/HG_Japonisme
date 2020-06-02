@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>HG Japonisme {%block titre %}{%endblock%}</title>
+        {% include "partials/css.html" %}
+        {% include "partials/metadata.html" %}
+        <!--<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">-->
+    </head> 
+    <body>
+        <header>
+            <a href="{{url_for('accueil')}}">
+                <h1>
+                    <span class="title">Le Japonisme d'Henri Guérard</span>
+                </h1>
+            </a>
+            <nav>
+                <ul class="navigation">
+                    <li>
+                        <a href="{{url_for('accueil')}}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('repro_objets')}}">Reproductions d'objets</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('grav_originales')}}">Gravures originales</a>
+                    </li>
+                    <li class="deroulant"><a href="#">Index</a>
+                        <ul class="sous">
+                            <li><a href="{{url_for('index_artistes')}}">Artistes</a></li>
+                            <li><a href="{{url_for('index_localisations')}}">Lieux de conservation</a></li>
+                            <li><a href="{{url_for('index_sujets')}}">Sujets</a></li>
+                            <li><a href="{{url_for('index_techniques')}}">Techniques</a></li>
+                        </ul>
+                    </li>
+                    {% if not current_user.is_authenticated %}
+                    <li>
+                        <a href="{{url_for('inscription')}}">Inscription</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('connexion')}}">Connexion</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{url_for('ajout_oeuvre')}}">Enrichir la base</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('deconnexion')}}">Déconnexion</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{url_for('a_propos')}}">A propos</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="search-container">
+                <form class="form-inline" action="{{url_for('recherche')}}" method="GET">
+                    <input class="form-control" name="keyword" type="search" placeholder="Recherche rapide" aria-label="Recherche">
+                    <button class="btn btn-info" type="submit">Rechercher</button>
+                </form>
+            </div>
+        </header>
+        <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          <div class="row">
+              <div class="col">
+                {% for category, message in messages %}
+                  <div class="alert alert-{{category}}" role="alert">{{ message }}</div>
+                {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+          {% endwith %}
+            <div>
+            {% block corps %}{% endblock %}
+            </div>
+        </div>
+        <footer>
+            <center>
+                <div>
+                    <p style="font-size: 13px"><img class="footer-logo" width="10%" src="http://www.chartes.psl.eu/sites/all/themes/enc_base/images/public/logo-ecole-nationale-des-chartes-footer.png" alt="École nationale des Chartes">  © HG Japonisme - Auriane Quoix, master TNAH, promotion 2020</p>
+                </div>
+            </center>
+        </footer>
+    </body> 
+</html>
+
+

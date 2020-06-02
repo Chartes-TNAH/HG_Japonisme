@@ -1,0 +1,50 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| S'inscrire{%endblock%}
+
+{% block corps %}
+<div>
+    <center>
+        <h2>Inscription</h2>
+        <p>Complétez le formulaire pour vous inscrire.</p>
+        <form class="form" method="POST" action="{{url_for('inscription')}}">
+            <div class="form-group row">
+                <label for="register-login" class="col-sm-2 col-form-label">Identifiant*</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="register-login" name="identifiant_creer" placeholder="Votre nom d'utilisateur">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="register-password" class="col-sm-2 col-form-label">Mot de passe*</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="register-password" placeholder="Votre mot de passe" name="mot_de_passe_creer">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="register-nom" class="col-sm-2 col-form-label">Nom*</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="register-nom" placeholder="Votre nom" name="nom_utilisateur_creer">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="register-prenom" class="col-sm-2 col-form-label">Prénom*</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="register-prenom" placeholder="Votre prénom" name="prenom_utilisateur_creer">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="register-email" class="col-sm-2 col-form-label">E-mail*</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="register-email" placeholder="email@exemple.com" name="email_creer">
+                </div>
+            </div>
+            <div style="text-align: right">
+                <p>* champs obligatoires</p>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-info">S'inscrire</button>
+            </div>
+        </form>
+    </center>
+</div>
+{% endblock %}

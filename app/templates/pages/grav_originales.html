@@ -1,0 +1,47 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Gravures originales{% endblock %}
+
+{% block corps %}
+<div id="wrap">
+    <center>
+        <h2>Gravures originales</h2>
+    </center>
+    {% if gravures_originales %}
+        <ul class="resource-list">
+            {% for oeuvre in gravures_originales %}
+                <li class="item resource">
+                    <center>
+                        <a href="{{url_for('notice_oeuvre', id_oeuvre=oeuvre.id_oeuvre)}}">
+                            <img src="{{oeuvre.iiif_image}}">
+                        </a>
+                    </center>
+                    <div id="legende">
+                        <center>
+                            <p><em>{{oeuvre.titre}}</em></p>
+                        </center>
+                    </div>
+                    <br>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if current_user.is_authenticated %}
+            <center>
+                <p>
+                    <a href="{{url_for('ajout_oeuvre')}}">Ajouter une œuvre</a>
+                </p>
+            </center>
+        {% endif %}
+    {% else %}
+        <center>
+            <br>
+            <p>Aucune oeuvre n'est enregistrée.</p>
+            {% if current_user.is_authenticated %}
+                <p>
+                    <a href="{{url_for('ajout_oeuvre')}}">Ajouter une œuvre</a>
+                </p>
+            {% endif %}
+        </center>
+    {% endif %}
+</div>
+{% endblock %}

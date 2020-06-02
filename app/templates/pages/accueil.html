@@ -1,0 +1,22 @@
+{% extends "conteneur.html" %}
+
+{% block corps %}
+    <div class="blocks">
+        <center>
+            <figure>
+                <img src="/static/img/guerard_calendrier.jpg" width="70%" />
+                <figcaption style="font-size: 12px">Henri Guérard, <i>Calendrier pour 1887</i>, 1887, eau-forte, roulette et pointe sèche, 22,4 x 32,8 cm, BnF, Département des Estampes et de la Photographie, Paris</figcaption>
+            </figure>
+        </center>
+        <center>
+            <br/>
+            <h2>Bienvenue sur HG Japonisme</h2>
+            <h5>L'application présentant les œuvres japonisantes d'Henri Guérard</h5>
+            <br/>
+            <div>
+                <p>Cette application web propose de vous faire découvrir le japonisme d'Henri Guérard à travers les gravures qu'il a réalisées. Les onglets <a href="{{url_for('repro_objets')}}">reproductions d'objets</a> et <a href="{{url_for('grav_originales')}}">gravures originales</a> permettent de découvrir deux pans de son œuvre gravé (<a href="{{url_for('a_propos')}}">en savoir plus</a>). Vous pouvez également effectuer une recherche rapide via la barre de recherche et consulter les différents index de l'application.</p>
+                <p>Vous pouvez nous aider à enrichir cette base en proposant de nouvelles gravures ou objets que l'artiste a pris pour modèle. Pour cela, il suffit de vous créer un <a href="{{url_for('inscription')}}">compte utilisateur</a>.</p>
+            </div>
+        </center>
+    </div>          
+{% endblock %}

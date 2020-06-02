@@ -1,0 +1,116 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Ajouter une œuvre{% endblock %}
+
+{% block corps %}
+
+<div>
+    <center>
+        <h2>Ajouter une œuvre</h2>
+        <p>Pour ajouter une nouvelle oeuvre et ainsi enrichir la base, complétez le formulaire et cliquez sur "Ajouter".</p>
+    </center>
+</div>
+<form class="form" method="POST" action="{{url_for('ajout_oeuvre')}}">
+    <div class="form-group row">
+      <label for="artiste_inf" class="col-sm-2 col-form-label">Nom de l'artiste</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="artiste_inf" placeholder="Nom de l'artiste"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="artiste_inf" class="col-sm-2 col-form-label">Prénom de l'artiste</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="artiste_inf" placeholder="Prénom de l'artiste"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="artiste_inf" class="col-sm-2 col-form-label">Année de naissance</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="artiste_inf" placeholder="Année de naissance de l'artiste"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="artiste_inf" class="col-sm-2 col-form-label">Année de décès</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="artiste_inf" placeholder="Année de décès de l'artiste"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_titre" class="col-sm-2 col-form-label">Titre</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_titre" placeholder="Titre de l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_date_oeuvre" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_date_oeuvre" placeholder="Date de création de l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="techni" class="col-sm-2 col-form-label">Technique</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="techni" placeholder="Technique"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_dimensions" class="col-sm-2 col-form-label">Dimensions</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_dimensions" placeholder="Dimensions de l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="lieu_cons" class="col-sm-2 col-form-label">Lieu de conservation</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="lieu_cons" placeholder="Lieu de conservation de l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="lieu_cons" class="col-sm-2 col-form-label">Ville de conservation</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="lieu_cons" placeholder="Ville de conservation de l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_url_site" class="col-sm-2 col-form-label">Source des images</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_url_site" placeholder="Lien vers la source"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_manifeste_iiif" class="col-sm-2 col-form-label">Manifeste IIIF</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_manifeste_iiif" placeholder="Lien vers le manifeste IIIF"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="ajout_iiif_image" class="col-sm-2 col-form-label">Image</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="ajout_iiif_image" placeholder="Lien vers l'image"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="lab_suj" class="col-sm-2 col-form-label">Sujet</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="lab_suj" placeholder="Associer un sujet à l'œuvre"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="categorie_id" class="col-sm-2 col-form-label">Catégorie ("1" ou "2")</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="categorie_id" placeholder="Indiquer la catégorie de l'œuvre : '1' si Reproduction d'objets, '2' si Gravure originale"/>
+      </div>
+    </div>
+    <div class="form-group row">  
+      <label for="localisation_id" class="col-sm-2 col-form-label">Localisation ("1" ou "2")</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="localisation_id" placeholder="Indiquer la catégorie de l'œuvre : '1' si BnF, '2' si Musée Cernuschi"/>
+      </div>
+    </div>
+    <center>
+      <div>
+        <button type="submit" class="btn btn-info">Ajouter</button>
+      </div>
+    </center>
+</form>
+{% endblock %}

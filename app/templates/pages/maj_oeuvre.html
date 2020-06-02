@@ -1,0 +1,116 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Modifier une oeuvre{%endblock%}
+
+{% block corps %}
+
+<div>
+    <center>
+      <h2>Modifier une oeuvre</h2>
+      <p>Pour modifier une oeuvre, complétez le formulaire et cliquez sur "Modifier".</p>
+    </center>
+</div>
+<form class="form" method="POST" action="{{url_for('maj_oeuvre', id_oeuvre=modif_oeuvre.id_oeuvre)}}">
+    <div class="form-group row">
+      <label for="maj_nom" class="col-sm-2 col-form-label">Nom de l'artiste</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_nom" value="{{modif_oeuvre.nom}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_prenom" class="col-sm-2 col-form-label">Prénom de l'artiste</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_prenom" value="{{modif_oeuvre.prenom}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_annee_naissance" class="col-sm-2 col-form-label">Année de naissance</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_annee_naissance" value="{{modif_oeuvre.annee_naissance}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_annee_mort" class="col-sm-2 col-form-label">Année de décès</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_annee_mort" value="{{modif_oeuvre.annee_mort}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_titre" class="col-sm-2 col-form-label">Titre</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_titre" value="{{modif_oeuvre.titre}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_date_oeuvre" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_date_oeuvre" value="{{modif_oeuvre.date_oeuvre}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_label_technique" class="col-sm-2 col-form-label">Technique</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_label_technique" value="{{modif_oeuvre.label_technique}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_dimensions" class="col-sm-2 col-form-label">Dimensions</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_dimensions" value="{{modif_oeuvre.dimensions}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_label_lieu_conservation" class="col-sm-2 col-form-label">Lieu de conservation</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_label_lieu_conservation" value="{{modif_oeuvre.label_lieu_conservation}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="maj_label_ville_conservation" class="col-sm-2 col-form-label">Ville de conservation</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_label_ville_conservation" value="{{modif_oeuvre.label_ville_conservation}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="maj_url_site" class="col-sm-2 col-form-label">Source des images</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_url_site" value="{{modif_oeuvre.url_site}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="maj_manifeste_iiif" class="col-sm-2 col-form-label">Manifeste IIIF</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_manifeste_iiif" value="{{modif_oeuvre.manifeste_iiif}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="maj_iiif_image" class="col-sm-2 col-form-label">Image</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_iiif_image" value="{{modif_oeuvre.iiif_image}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="maj_label_sujet" class="col-sm-2 col-form-label">Sujet</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="maj_label_sujet" value="{{modif_oeuvre.label_sujet}}"/>
+      </div>
+    </div>
+        <div class="form-group row">
+        <label for="categorie_id" class="col-sm-2 col-form-label">Catégorie</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="categorie_id" value="{{modif_oeuvre.label_sujet}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="localisation_id" class="col-sm-2 col-form-label">Localisation</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="localisation_id" value="{{modif_oeuvre.label_sujet}}"/>
+      </div>
+    </div>
+    <center>
+      <div>
+        <button type="submit" class="btn btn-info">Modifier</button>
+      </div>
+    </center>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| A propos{% endblock %}
+
+{% block corps %}
+<div class="blocks">
+	<center>
+		<div>
+			<h2>À propos</h2>
+			<center><p>Cette application a été développée par Auriane Quoix dans le cadre du Master 2 Technologies numériques appliquées à l'histoire, à l'École nationale des chartes.</p></center>
+            <br/>
+		</div>
+		<div>
+			<h5>Description du projet</h5>
+			<p>HG Japonisme est une application web destinée à présenter les gravures japonisantes d'Henri Guérard (1846-1897), artiste éclectique de la fin du XIXe siècle et collectionneur.</p>
+			<p>Si l'art japonisant d'Henri Guérard a pu prendre les formes les plus diverses, deux facettes, la gravure d'interprétation et la gravure originale, ressortent de son œuvre gravé. Ces deux aspects correspondant à deux genres bien précis du japonisme de l'artiste, documentaire d'une part, original d'autre part, qui cohabitent au sein de son œuvre gravé. Le premier se caractérise par la reproduction d'objets d'art japonais avec une minutie extrême, tandis que le second est représenté par des estampes au sein desquelles, l'artiste, libéré de toute contrainte, a pu laisser éclater son imagination et son humour.</p>
+			<p>La structure de l'application est organisée autour de ces deux facettes de l'œuvre gravé de Guérard. D'une part, vous pouvez consulter la section <a href="{{url_for('repro_objets')}}">reproductions d'objets</a>, destinée à accueillir à la fois les gravures d'interprétation et les objets ayant servi de modèle. D'autre part, vous trouverez dans la section <a href="{{url_for('grav_originales')}}">gravures originales</a>, des œuvres laissant transparaître l'attrait profond de Guérard pour l'art japonais.
+			<br>L'artiste en a à la fois adopté ses thèmes, comme le naturalisme, mais il est également parvenu à s'approprier des procédés techniques et des principes de constructions propres aux estampes japonaises.</p>
+			<p>Cette application est prévue pour pouvoir être enrichie par des contributeurs. Le contenu qu'elle présente n'est donc pas exhaustif.
+			<br>Si vous souhaitez nous aider à enrichir notre base, il vous suffit de créer un compte.</p>
+			<br/>
+		</div>
+		<div>
+			<h5>Comment fonctionne HG Japonisme ?</h5>
+			<p>L'application a été créée avec les langages Python, HTML, CSS, ainsi qu'à partir d'une base de données MySQL.</p>
+			<br/>
+		</div>
+		<div>
+			<h5>Comment installer l'application ?</h5>
+			<p>Pour installer HG Japonisme, rendez-vous sur <a href="https://github.com/Chartes-TNAH/HG_Japonisme">Github</a> pour télécharger le dossier correspondant de l'application. Il est recommandé de créer un environnement virtuel afin d'installer les dépendances du projet via le fichier requirements.txt. Le fichier run.py permet de lancer l'application.</p>
+			<br/>
+		</div>
+	</center>
+	<center>
+		<div>
+			<p><a href="{{url_for('accueil')}}">Retour à l'accueil</a></p>
+		</div>
+	</center>
+</div>
+{% endblock %}
