@@ -107,6 +107,7 @@ def index_localisations() :
     lieu = Localisation.query.all()
 
     if len(lieu) == 0:
+        # Cette ligne gènèrera une erreur.
         return render_template("pages/index_localisations", lieu=lieu, title=title)
     else : 
         page = request.args.get("page", 1)
